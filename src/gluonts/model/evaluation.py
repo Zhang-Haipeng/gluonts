@@ -68,8 +68,12 @@ def _get_data_batch(
     if mask_invalid_label:
         label_target = np.ma.masked_invalid(label_target)
 
+    # Include input target in other_data for MAR and MBR metrics that need it
+    input_target = [input_["target"] for input_ in input_batch]
+
     other_data = {
         "label": label_target,
+        "input": input_target,
     }
 
     seasonal_error_values = []
