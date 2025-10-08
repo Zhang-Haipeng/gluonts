@@ -252,4 +252,5 @@ def cmdclass():
     return {"sdist": sdist, "build_py": build_py}
 
 
-__version__ = get_version(fallback=FALLBACK_VERSION)
+# __version__ = get_version(fallback=FALLBACK_VERSION)
+__version__ = "0.16.0+include-inputs-in-databatch"
