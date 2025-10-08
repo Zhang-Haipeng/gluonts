@@ -67,9 +67,12 @@ def _get_data_batch(
     label_target = np.stack([label["target"] for label in label_batch], axis=0)
     if mask_invalid_label:
         label_target = np.ma.masked_invalid(label_target)
+    
+    input_target = [input_["target"] for input_ in input_batch]
 
     other_data = {
         "label": label_target,
+        "input": input_target,
     }
 
     seasonal_error_values = []
